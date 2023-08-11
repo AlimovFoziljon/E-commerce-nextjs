@@ -17,7 +17,9 @@ const ShoppingCart = () => {
 
     const removeProduct = (id: number) => {
         const updateCart = products.filter(product => product.id !== id)
-        localStorage.setItem('carts', JSON.stringify(updateCart))
+        if(typeof window !== "undefined"){
+            localStorage.setItem('carts', JSON.stringify(updateCart))
+        }
         setProducts(updateCart)
     }
 
@@ -31,8 +33,10 @@ const ShoppingCart = () => {
             }
             return product
         })
-        localStorage.setItem('carts', JSON.stringify(updateCart))
-        setProducts(updateCart)
+        if(typeof window !== "undefined"){
+            localStorage.setItem('carts', JSON.stringify(updateCart))
+            setProducts(updateCart)
+        }
     }
     
     const handleDecrement = (id: number) => {
@@ -50,8 +54,10 @@ const ShoppingCart = () => {
                 }
                 return product
             })
-            localStorage.setItem('carts', JSON.stringify(updateCart))
-            setProducts(updateCart)
+            if(typeof window !== "undefined"){
+                localStorage.setItem('carts', JSON.stringify(updateCart))
+                setProducts(updateCart)
+            }
         }
         
     }
