@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>
+      <body suppressHydrationWarning={true} className={montserrat.className}>
         <Navbar />
         <ToastContainer />
         {children}
